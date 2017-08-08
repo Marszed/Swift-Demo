@@ -18,21 +18,49 @@ class ViewController: UIViewController {
     var isSecond: Bool = false; // 是否输入第二操作数
     var operatorFlag: String = "" // 操作符
     
+    
+    // =======================视图控制器中与生存期相关的方法=======================
+    // loadView 穿件或返回一个试图控制器的视图
+    // viewDidLoad 视图载入完成时执行
+    // viewWillAppear 视图将要呈现时执行
+    // viewDidAppear 视图已经呈现时执行
+    // viewWillDisappear 视图将要销毁时执行
+    // viewDidDisappear 视图已经销毁时执行
+    // viewWillLayoutSubviews 视图将要布局其子视图时执行
+    // viewDisLayoutSUbviews 视图已经布局其子视图时执行
+    // didReceiveMemoryWaring 视图检测到内存警告时执行
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // 载入试图后执行
         // 加载视图后再做任何额外设置，通常是从笔尖。
+        // 当应用程序运行到当前的属兔控制器后，控制器要将自己的视图对象显示在屏幕上，事件发生流程如下：
+        // 1: 如果该试图控制器的视图属性还没有被放入内存中，控制器将调用loadView方法。
+        // 2: 当载入视图完成，就会调用ViewDidLoad方法，在这个方法里面我们可以对需要显示的数据进行初始化
         // self.view.backgroundColor = UIColor.yellow;
         // let label = UILabel(frame: CGRect(x: 10, y: 170, width: 300, height: 50));
         // label.text = "Marszed"
         // label.textColor = UIColor.blue;
         // self.view.addSubview(label);
+        print("viewDidLoad 被调用");
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        print("viewWillAppear 被调用");
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated);
+        print("viewDidAppear 被调用");
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         // 处理任何可以重新创建的资源
+        // 收到内存警告的情况下执行
     }
 
     // 数字键 outLet Action
